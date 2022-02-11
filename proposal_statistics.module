@@ -1,0 +1,18 @@
+<?php
+
+/**
+ * Implements hook_menu().
+ */
+function proposal_statistics_menu() {
+ 
+	$items['proposal_statistics/%'] = array(
+	  'title' => 'Project Proposals Statistics',
+	  'page callback' => 'proposal_statistics_show',
+	  'access callback' => true,
+	  'menu_name' => 'main-menu',
+	  'file' => 'proposal_statistics.inc',
+	  'page arguments' => array(2)
+	);
+   
+	return $items;
+  }
