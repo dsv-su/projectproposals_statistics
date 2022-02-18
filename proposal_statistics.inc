@@ -131,11 +131,9 @@ foreach ($nodes as $nid => $node) {
                 $funds_granted[$year] += $node->field_total_budget_amount_for_ds['und'][0]['value'];
                 $funds_granted_unit[$year][$unit] += $node->field_total_budget_amount_for_ds['und'][0]['value'];
             }
+            $tempuser = user_load($node->field_dsv_person_in_charge['und'][0]['uid']);
             print $year . ' ' . $node->title . ' (' . $tempuser->realname . '): <b>' . $node->field_total_budget_amount_for_ds['und'][0]['value'] . ' ' . $node->field_currency['und'][0]['value'] . '</b><br>';
         }
-        $tempuser = user_load($node->field_dsv_person_in_charge['und'][0]['uid']);
-        // print $tempuser->realname;
-        //    print $year.' '.$node->title.' ('.$tempuser->realname.'): <b>'.$node->field_total_budget_amount_for_ds['und'][0]['value'].' '.$node->field_currency['und'][0]['value'].'</b><br>';
 
         if ($node->field_currency['und'][0]['value'] == '€' || $node->field_currency['und'][0]['value'] == '$') {
             $amountarea[$year][$area] += $node->field_total_budget_amount_for_ds['und'][0]['value'] * 10;
